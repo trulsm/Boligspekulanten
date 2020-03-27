@@ -1,0 +1,23 @@
+
+{% load static %}
+<header class="header">
+
+  <nav>
+    <ul class="header-nav">
+      {% include 'partials/_nav-links.html' %}
+    </ul>
+  </nav>
+  <a href="/" class="header-logo">
+    <img src="{% static '/images/logo.jpeg' %}" alt="Logo">
+  </a>
+  <!-- <div class="container">
+    <button id="login-button">log in</button>
+    <div class="login-container">
+      <form class="login-form">
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <input type="submit" value="SUBMIT" />
+      </form>
+    </div>
+  </div> -->
+</header>

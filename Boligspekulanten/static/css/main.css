@@ -1,0 +1,449 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption, footer,
+header, hgroup, menu, nav, output, ruby, section,
+summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit; vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body { line-height: 1;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+border-collapse: collapse; border-spacing: 0;
+}
+strong, b {
+font-weight: bold; }
+em, i {
+font-style: italic;
+}
+a img {
+border: none; }
+/* END RESET*/
+
+/* GLOBAL STYLES */
+html {
+  box-shadow: 0 0 0 30px #000 inset;
+  padding: 0 30px;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Open Sans', helvetica, arial, sans;
+  min-height: 100vh;
+}
+/* .content-container {
+  flex: 1 1 auto;
+  padding-top: 10vh;
+  width: 100%;
+  display: flex;
+} */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', helvetica, sans-serif;
+  /* font-weight: 100; */
+}
+h1 {
+  margin-top: 0;
+  font-size: 7vw;
+}
+h2 {
+  font-size: 2em;
+  text-align: center;
+  margin-top: 3vw;
+}
+h4 {
+  color: #999;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+a {
+  color: #6397b5;
+}
+p {
+  line-height: 1.5;
+  margin: 0.75em;
+}
+h2 ~ p {
+  font-size: 0.8em;
+  font-style: italic;
+  margin: 1em auto 0;
+  max-width: 70%;
+  text-align: center;
+}
+
+
+/* HEADER STYLES */
+.header {
+  background-color: #000;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+}
+.header-nav {
+  float: right;
+  padding: 5vh 60px 0 0;
+}
+.header-nav > li {
+  display: inline-block;
+  margin-left: 1em;
+}
+.nav-links {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-right: 30px;
+  float: right;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+.nav-links > li {
+  padding-left: 2em;
+}
+.header-logo {
+  background-color: #000;
+  box-sizing: border-box;
+  display: block;
+  height: 12vh;
+  left: -30px;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  width: 10vh;
+}
+.header-logo img {
+  height: 80%;
+  width: auto;
+}
+.header-logo:hover,
+.header-logo:active {
+  opacity: 0.5;
+}
+
+/* HERO STYLES */
+.full-hero {
+  background-color: #ccc;
+  background-size: cover;
+  box-sizing: border-box;
+  height: 90vh;
+}
+.hero-home {
+  background-image: url(/images/tjuvholmen2.jpeg);
+  background-position: center top;
+}
+.hero-content {
+  color: white;
+  position: relative;
+  top: 50%;
+  text-align: center;
+  text-transform: uppercase;
+  transform: translate(0, -50%);
+}
+.hero-content h1 {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 7vw;
+  margin-bottom: 0.5em;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+.hero-content .social-link {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #556c83;
+}
+.hero-content .social-link:hover {
+  background-color: #000;
+  color: #fff;
+}
+.half-hero {
+  background-position: center center;
+  background-size: cover;
+  height: 40vh;
+}
+.full-hero:after {
+  border: 10px solid;
+  border-color: white transparent transparent transparent;
+  bottom: 2vh;
+  color: #fff;
+  content: "";
+  font-size: 36px;
+  height: 0;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,0);
+  width: 0;
+}
+
+/* IN-GAME STYLES */
+.in-game-styles {
+  text-align: center;
+}
+.adress {
+  margin-top: 6vh;
+}
+.in-game-picture img {
+  max-width: 70%;
+  max-height: 60%;
+}
+.in-game-price {
+  margin-top: 2vh;
+}
+.prop-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.info-col-1, .info-col-2 {
+  text-align: left;
+  margin: 20px;
+}
+.buy-sell {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.buy-button {
+  width: 30vw;
+  margin: 2vh;
+}
+.sell-button {
+  width: 30vw;
+  margin: 2vh;
+}
+
+/* START-GAME STYLES */
+
+
+
+/* HERO SLIDER */
+.slider_background {
+  background:#eee;
+}
+.slide-caption {
+  padding:0;
+  height:76px;
+  margin:0;
+  margin-top:34%;
+  width:auto;
+}
+.slide-caption .btn-primary {
+  width:100%;
+  height:100%;
+  display:inline-block;
+  vertical-align: middle;
+  font-weight:normal;
+  font-size:18px;
+}
+.slide-caption .btn-primary span {
+  display:inline-block;
+  vertical-align: middle;
+}
+.centerer {
+  height:100%;
+  width:0;
+  display:inline-block;
+  vertical-align: middle;
+}
+.slide-caption {
+  color:#fff;
+  background-color:#09455c;
+}
+.slider-container {
+  overflow:hidden;
+}
+.slide-caption .row,
+.slide-caption .col-md-2 {
+  height:100%;
+}
+.slide-caption .slide-text {
+  padding: 6px 45px;
+}
+.slider-container .slider-left,
+.slider-container .slider-right {
+  padding: 0;
+  margin-bottom: -9999px;
+  padding-bottom: 9986px;
+}
+.slider-right{
+  padding:15px;
+  background:#09455c;
+}
+.slider-right h2 {
+  font-weight: normal!important;
+  font-family: "Museo-300", Helvetica Neue, Helvetica, Arial, sans-serif;
+  color:#fff !important;
+  text-transform: uppercase;
+  font-size:18px;
+  line-height: 26px;
+  margin: 15px;
+  padding-left: 15px;
+}
+.slider-right ul {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.slider-right .arrow {
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  line-height:normal;
+  float:right;
+  color:#346100;
+  font-weight: 100;
+  font-size:14px;
+}
+.slide-title {
+  margin-bottom: 3px;
+  font-size:20px;
+  color:#fff;
+}
+.slider-right ul li a {
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  display:block;
+  padding:20px 30px;
+  background:#f6f5f6;
+  text-transform: uppercase;
+  font-size:16px;
+  color:#475055;
+  margin-bottom: -1px;
+}
+.slider-right ul li a:hover {
+  background:#1489b5;
+  text-decoration:none;
+  color:#fff;
+}
+.slider-right ul li a:hover .arrow {
+  color:#fff;
+}
+.slider-right .glyphicon {
+  display:inline-block;
+}
+
+/* HIDE IN THE FOOTER */
+.footer .dropdown:hover .drop-menu,
+.footer .drop-trigger:after {
+  display: none;
+}
+.footer .drop-trigger {
+  padding-right: 0;
+}
+
+.mobile-menu-check,
+.show-mobile-menu {
+  display: none;
+}
+
+/* FOOTER STYLES */
+.footer {
+  background-color: #000;
+  padding: 10vh 0 15vh;
+  text-align: center;
+}
+.footer img {
+  width: 50px;
+}
+.footer h3 {
+  color: #fff;
+  padding-top: 1.5em;
+  text-transform: uppercase;
+}
+.footer h3 span {
+  color: grey;
+}
+.footer-nav li {
+  display: inline-block;
+  margin: 2em 1em 0;
+}
+.footer-nav a {
+  color: #666;
+}
+
+
+/* SIGN UP FORM */
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+    width: 100%;
+  }
+}

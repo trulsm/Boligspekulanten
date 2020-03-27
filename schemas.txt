@@ -1,0 +1,18 @@
+MODEL/DB FIELDS
+
+## PROPERTY
+id: INT
+adresse: STR
+finnkode: INT
+link: STR
+pris: FLOAT
+totalpris: FLOAT
+areal: FLOAT
+megler: STR
+
+## PREDICTION
+id: INT
+property: INT (FOREIGN KEY [property])
+user: INT (FOREIGN KEY [user])
+price_prediction: FLOAT
+real_price: FLOAT

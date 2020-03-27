@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Start game</h1>
+
+<div class="start-game">
+    <div class="game-options">
+        <form action="action_page.php" style="border:1px solid #ccc">
+
+            <h3>Choose area or go random</h3>
+
+            <label for="country"><b>Select country</b></label>
+            <select>
+                <option value="Norway">Norway</option>
+            </select>
+
+            <label for="County"><b>Select County</b></label>
+            <select>
+                <option value="Oslo">Oslo</option>
+                <option value="Agder">Agder</option>
+                <option value="Telemark">Telemark</option>
+                <option value="Østfold">Østfold</option>
+                <option value="Hordaland">Hordaland</option>
+            </select>
+
+            <label for="area"><b>Select local area</b></label>
+            <select>
+                <option value="Random"><b>Random</b></option>
+                <option value="Frogner">Frogner</option>
+                <option value="st_hanshaugen"><b>St. Hanshaugen</b></option>
+            </select>
+
+            <button type="submit" class="start-button">Start game</button>
+
+        </form>
+    </div>
+    <div class="map">
+
+    </div>
+</div>
+
+
+{% endblock %}
