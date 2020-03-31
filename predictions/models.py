@@ -8,7 +8,7 @@ class Prediction(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     price_prediction = models.IntegerField()
     actual_price = models.IntegerField()
-    def __str__(self):
+    def __int__(self):
         return self.property_id
 
 

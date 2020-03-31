@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.start_game, name='start_game'),
-    path('<int:property_id>', views.display, name='display')
+    path('display', views.display, name='display')
 ]
 
 

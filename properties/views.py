@@ -1,9 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from .models import Property
+import random
+
 
 def display(request):
-    return render(request, 'properties/display.html')
+    properties = Property.objects.all()
+    random_property = random.choice(properties)
+
+    context = {
+        'property': random_property
+    }
+    return render(request, 'properties/display.html', context)
 
 
 def start_game(request):

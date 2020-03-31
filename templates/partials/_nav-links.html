@@ -1,5 +1,42 @@
 <div class="nav-links">
-  <li><a href="{% url 'start_game' %}">Start game</a></li>
-  <li><a href="{% url 'index' %}">Play</a></li>
-  <li><a href="/log_in">Log in</a></li>
+  <li><a href="{% url 'start_game' %}">Play</a></li>
+  <!-- {% if user.is_authenticated %}
+    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+    <li><a href="{% url 'logout' %}">Log out</a></li>
+  {% else %}
+    <li><a href="{% url 'login' %}">Log in</a></li>
+    <li><a href="{% url 'register' %}">Sign up!</a></li>
+  {% endif %} -->
+    
+  {% if user.is_authenticated %}
+  <li {% if 'dashboard' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+    <a class="nav-link" href="{% url 'dashboard' %}">
+      Dashboard
+    </a>
+  </li>
+  <li class="nav-item mr-3">
+    <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+      Logout
+    </a>
+    <form action="{% url 'logout' %}" method="POST" id="logout">
+      {% csrf_token %}
+      <input type="hidden">
+    </form>
+  </li>
+  {% else %}
+
+
+  <li {% if 'register' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+    <a class="nav-link" href="{% url 'register' %}">
+      <i class="fas fa-user-plus"></i> Register
+    </a>
+  </li>
+  <li {% if 'login' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+    <a class="nav-link" href="{% url 'login' %}">
+      <i class="fas fa-sign-in-alt"></i>Login
+    </a>
+  </li>
+
+  {% endif %}
+
 </div>
