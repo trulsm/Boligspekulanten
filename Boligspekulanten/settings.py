@@ -124,7 +124,7 @@ USE_TZ = True
 
 USE_THOUSAND_SEPARATOR = True
 
-DECIMAL_SEPARATOR = " "
+DECIMAL_SEPARATOR = ' '
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
