@@ -6,38 +6,37 @@
     <h1>Display</h1>
     <div class="in-game-styles">
         <div class="adress">
-            <h4>{{property.adresse}}</h4>
+            <h4><a href="{{property.finnlink}}" target="_blank">{{property.adresse}}</a></h4>
         </div>
         <div class="in-game-picture">
             <img src="/images/Colletts_gate_6.png" alt="in-game-pic">
         </div>
         <div class="in-game-price">
             <h5>Prisantydning</h4>
-            <h4>{{property.pris}} kr</h3>
+            <h4>{{property.prisantydning}} kr</h3>
         </div>
         <div class="prop-info">
             <div class="info-col-1">
                 <ul>
-                    <li>Boligtype: Leilighet</li>
-                    <li>Eieform: Eier (Selveier)</li>
-                    <li>Soverom: 2</li>
-                    <li>Primærrom: {{property.areal}} m²</li>
+                    <li>Boligtype: {{property.boligtype}}</li>
+                    <li>Eieform: {{property.eierform}}</li>
+                    <li>Primærrom: {{property.primarareal}} m²</li>
                 </ul>
             </div>
             <div class="info-col-2">
                 <ul>
-                    <li>Bruksareal: {{property.areal}} m²</li>
-                    <li>Etasje: 3</li>
-                    <li>Byggeår: 1930</li>
-                    <li>Energimerking: F</li>
+                    <li>Bruksareal: {{property.bruksareal}} m²</li>
+                    <li>Etasje: {{property.etasje}}</li>
+                    <li>Byggeår: {{property.byggear}}</li>
                 </ul>
             </div>
         </div>
-        <form action="action_page.php">
-            <div class="buy-sell">
-                <button type="submit" class="buy-button">Kjøp</button>
-                <button type="submit" class="sell-button">Selg</button>
+        <!-- <form action="action_page.php"> -->
+            <div class="quantity buttons_added">
+                <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1"
+                    title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+"
+                    class="plus">
             </div>
-        </form>
+        <!-- </form> -->
     </div>
 {% endblock %}
