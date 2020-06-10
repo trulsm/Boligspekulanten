@@ -229,6 +229,11 @@ h2 ~ p {
   margin: 2vh;
 }
 
+.bet-button {
+  width: 30vw;
+  margin: 5vh;
+}
+
 /* START-GAME STYLES */
 
 
@@ -447,3 +452,41 @@ button:hover {
     width: 100%;
   }
 }
+
+/* FROM GOOGLE MAPS */
+
+#map {
+  width: 60%;
+  height: 400px;
+  background-color: grey;
+}
+
+/* FROM APPLE MAPS */
+
+/* html, body, #container {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#loupe {
+    width: 200px;
+    width: 20vw;
+    height: 200px;
+    height: 20vw;
+    position: absolute;
+    top: 11px;
+    left: 11px;
+
+    overflow: hidden;
+
+    border: 8px solid #FFF;
+
+    -webkit-box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow:    0 0 5px 4px rgba(0, 0, 0, 0.2);
+    box-shadow:         0 0 5px 4px rgba(0, 0, 0, 0.2);
+} */

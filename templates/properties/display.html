@@ -3,40 +3,109 @@
 {% load humanize %}
 
 {% block content %}
+    <br>
+    <br>
     <h1>Display</h1>
+    <br>
+    <br>
+    {% include 'partials/_alerts.html' %}
     <div class="in-game-styles">
+        <div class="omrade">
+            <ul>
+                <li>{{property.omrade1}}</li>
+                <li>{{property.omrade2}}</li>
+            </ul>
+        </div>
         <div class="adress">
             <h4><a href="{{property.finnlink}}" target="_blank">{{property.adresse}}</a></h4>
         </div>
-        <div class="in-game-picture">
+        <!-- <div class="in-game-picture">
             <img src="/images/Colletts_gate_6.png" alt="in-game-pic">
-        </div>
+        </div> -->
+
+        <!-- GOOGLE MAPS DIV -->
+        <!-- <div id="map"></div> -->
+
+        <!-- GOOGLE MAPS JAVASCRIPT -->
+        <script>
+            // Initialize and add the map
+            function initMap() {
+                // The location of Uluru
+                var uluru = { lat: -25.344, lng: 131.036 };
+                // The map, centered at Uluru
+                var map = new google.maps.Map(
+                    document.getElementById('map'), { zoom: 8, center: uluru });
+                // The marker, positioned at Uluru
+                var marker = new google.maps.Marker({ position: uluru, map: map });
+            }
+        </script>
+
+        <!-- <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4zGdL8hbqUSI78ui6jV2Jazz4ni4X-50&callback=initMap"
+            type="text/javascript"></script> -->
+
+        <img src="https://maps.googleapis.com/maps/api/staticmap?center={{ mapstring }}&zoom=14&size=1200x500&maptype=roadmap
+&markers=color:red%7Clabel:!%7C{{ mapstring }}&format=png32&style=feature:poi.park%7Ccolor:0xffffff&key=AIzaSyAXL5drWwozDAbruVkvnTpNgMCjgEpTtss" alt="Static API Map">
+
         <div class="in-game-price">
             <h5>Prisantydning</h4>
-            <h4>{{property.prisantydning}} kr</h3>
+            <h4>{{property.prisantydning | floatformat | intcomma}} kr</h3>
         </div>
         <div class="prop-info">
             <div class="info-col-1">
                 <ul>
                     <li>Boligtype: {{property.boligtype}}</li>
                     <li>Eieform: {{property.eierform}}</li>
-                    <li>Primærrom: {{property.primarareal}} m²</li>
+                    <li>Primærrom: {{property.primarareal | floatformat}} m²</li>
                 </ul>
             </div>
             <div class="info-col-2">
                 <ul>
-                    <li>Bruksareal: {{property.bruksareal}} m²</li>
-                    <li>Etasje: {{property.etasje}}</li>
-                    <li>Byggeår: {{property.byggear}}</li>
+                    <li>Bruksareal: {{property.bruksareal | floatformat}} m²</li>
+                    <li>Etasje: {{property.etasje | floatformat}}</li>
+                    <li>Byggeår: {{property.byggear | floatformat}}</li>
                 </ul>
             </div>
         </div>
-        <!-- <form action="action_page.php"> -->
+        <form action="{% url 'prediction' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="property_id" value="{{property.id}}">
+            <input type="hidden" name="property_adresse" value="{{property.adresse}}">
+            <input type="hidden" name="omrade1" value="{{property.omrade1}">
+            <input type="hidden" name="omrade2" value="{{property.omrade2}}">
+            {% if user.is_authenticated %}
+                <input type="hidden" name="user_id" value="{{user.id}}">
+                <input type="hidden" name="user_username" value="{{user.username}}">
+            {% else %}
+                <input type="hidden" name="user_id" value="0">
+                <input type="hidden" name="user_username" value="Unknown">
+            {% endif %}
             <div class="quantity buttons_added">
-                <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1"
-                    title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+"
+                <input type="button" value="-" class="minus"><input type="number" step="10000" min="0" max="" name="price_prediction" value="{{ property.prisantydning  | floatformat }}"
+                    title="Qty" class="input-text qty text" size="1" pattern="" inputmode=""><input type="button" value="+"
                     class="plus">
             </div>
-        <!-- </form> -->
+
+            <!-- Option for choosing next area from this place: -->
+
+            <label for="County"><b>Select area for next prediction</b></label>
+            <select name="omrade1">
+                <option value="Oslo">Oslo</option>
+            </select>
+            
+            <label for="area"><b>Select local area</b></label>
+            <select name="omrade2">
+                <option value="Random"><b>Random</b></option>
+                <option value="Bygdøy - Frogner">Bygdøy - Frogner</option>
+                <option value="St.Hanshaugen - Ullevål"><b>St.Hanshaugen - Ullevål</b></option>
+                <option value="Sagene - Torshov"><b>Sagene - Torshov</b></option>
+            </select>
+            <br>
+            <div class="predict-button">
+                <button type="submit" value="Send" class="btn btn-primary">Submit prediction and show a new one</button>
+            </div>
+            <br>
+
+        </form>
     </div>
 {% endblock %}

@@ -38,5 +38,8 @@ class Property(models.Model):
     referansenummer = models.CharField(max_length=50, null=True)
     solgt = models.BooleanField(default=False)
     salgspris = models.FloatField(null=True, blank=True)
+    forste_visning = models.DateField(null=True, blank=True)
+    siste_visning = models.DateField(null=True, blank=True)
+    status = models.CharField(max_length=100, null=True)
     def __str__(self):
         return self.adresse

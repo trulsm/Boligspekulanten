@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
+from predictions.models import Prediction
 
 
 def register(request):
@@ -68,4 +69,12 @@ def logout(request):
 
 
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+    user_predictions = Prediction.objects.order_by('-prediction_date').filter(user_id=request.user.id)
+    # predictions = predictions_all.filter(user_id__icontains=User.id)
+    user = request.user
+
+    context = {
+        'predictions': user_predictions,
+        'user': user
+    }
+    return render(request, 'accounts/dashboard.html', context)

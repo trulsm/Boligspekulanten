@@ -4,12 +4,12 @@ from .models import Prediction
 
 
 class PredictionAdmin(admin.ModelAdmin):
-    list_display = ('property_id', 'user', 'price_prediction',
+    list_display = ('id', 'property_id', 'property_adresse', 'user_id', 'user_username', 'price_prediction',
                     'actual_price')
-    list_display_links = ('property_id', 'user')
-    list_filter = ('user',)
+    list_display_links = ('property_id', 'user_id')
+    list_filter = ('user_id',)
     #list_editable = ('is_published',)
-    search_fields = ('property_id', 'user')
+    search_fields = ('property_id', 'user_id')
     list_per_page = 50
 
 
