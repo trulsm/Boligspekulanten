@@ -4,12 +4,12 @@ from .models import Property
 
 
 class PropertyAdmin(admin.ModelAdmin):
-    list_display = ('id', 'adresse', 'finnkode',
-                    'primarareal', 'prisantydning', 'megler', 'solgt')
-    list_display_links = ('id', 'adresse')
-    list_filter = ('solgt',)
+    list_display = ('id', 'address', 'code',
+                    'm2', 'price', 'megler', 'sold')
+    list_display_links = ('id', 'address')
+    list_filter = ('sold',)
     #list_editable = ('is_published',)
-    search_fields = ('finnkode', 'adresse')
+    search_fields = ('code', 'address')
     list_per_page = 50
 
 

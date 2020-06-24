@@ -14,7 +14,7 @@ def prediction(request):
         price_prediction = request.POST['price_prediction']
         #prediction_date = request.POST['prediction_date']
 
-        prediction = Prediction(property_id=property_id, property_adresse=property_adresse, user_id=user_id, user_username=user_username, price_prediction=price_prediction)
+        prediction = Prediction(property_id=property_id, property_address=property_adresse, user_id=user_id, user_username=user_username, price_prediction=price_prediction)
 
         prediction.save()
 
@@ -23,20 +23,20 @@ def prediction(request):
 
     properties = Property.objects.all()
 
-    if 'omrade1' in request.POST:
-        omrade1 = request.POST['omrade1']
-        if omrade1:
-            properties = properties.filter(omrade1__icontains=omrade1)
-    if 'omrade2' in request.POST:
-        omrade2 = request.POST['omrade2']
-        if omrade2:
-            properties = properties.filter(omrade2__icontains=omrade2)
+    if 'area1' in request.POST:
+        area1 = request.POST['area1']
+        if area1:
+            properties = properties.filter(area1__icontains=area1)
+    if 'area2' in request.POST:
+        area2 = request.POST['area2']
+        if area2:
+            properties = properties.filter(area2__icontains=area2)
 
     random_property = random.choice(properties)
-    mapstring = "+".join(",".join(random_property.adresse.split(", ")).split())
+    mapstring = "+".join(",".join(random_property.address.split(", ")).split())
     context = {
-        'omrade1': omrade1,
-        'omrade2': omrade2,
+        'area1': area1,
+        'area2': area2,
         'property': random_property,
         'mapstring': mapstring
     }
